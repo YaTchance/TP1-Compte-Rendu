@@ -91,7 +91,7 @@ bool isISBN(std::string ISBN){
     return false;
 }
 
-void display(Livre) const {
+/*void display(Livre) const {
   if ()
 }
 

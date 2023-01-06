@@ -3,12 +3,19 @@
 #include <cassert> 
 #include "date.h"
 
-Auteur::Auteur(std::string IDnume, std::string firstname, std::string lastname, Date born){ bool status = isID(IDnume);
+Auteur::Auteur(){    
+    _IDnume = " ";
+    _firstname = "toto";
+    _lastname = " ";
+}
+
+Auteur::Auteur(std::string IDnume, std::string firstname, std::string lastname){ 
+  bool status = isID(IDnume);
   assert(status && "ID is not valid");
     _IDnume = IDnume;
     _firstname = firstname;
     _lastname = lastname;
-    _born = born;
+
       }
 
 std::string Auteur::IDnume() const 

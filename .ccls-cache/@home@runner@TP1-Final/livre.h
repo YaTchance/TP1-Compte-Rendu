@@ -14,21 +14,22 @@ enum class Langues{
 class Livre
 {
 private:
-  //std::string _auteur;
+  Auteur _auteur;
   std::string _titre;
   Genres _genre;
   Langues _langue;
   std::string _ISBN;
   Date _datePublication;
+int _complet;
 
 public:
-  Livre(Auteur Auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication);
+  Livre(Auteur auteur = Auteur("n-000000", " ", " "), std::string titre = " ", Genres genre = Genres::Policier, Langues langue = Langues::Français, std::string ISBN = " ", Date datePublication = Date(2002, 7, 10), int complet = 0);
 
   std::string ISBN() const;
   std::string getTitre() const { 
         return _titre;}
-	//std::string getAuteur() const { 
-	  //  return _auteur;}
+	Auteur getAuteur() const { 
+	  return _auteur;}
 	Langues getLangue() const { 
 	    return _langue;}
 	Genres getGenre() const { 
@@ -40,9 +41,11 @@ public:
 	std::string getISBN() const { 
 	    return _ISBN;}
 
-  void display(Livre);
+  
 };
-    
+std::ostream& operator<<(std::ostream& os, const Livre& livre);  
+
+
 std::string toStringGenre(Genres g);
 std::string toStringLangue(Langues l);
 

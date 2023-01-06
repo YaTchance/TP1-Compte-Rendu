@@ -11,10 +11,12 @@ private:
   std::string _lastname;
 
 public:
-  Auteur(std::string IDnume, std::string firstname, std::string lastname, Date born);
+  Auteur();
+
+  Auteur(std::string IDnume, std::string firstname , std::string lastname);
 
 
-  std::string firstname() const;
+  std::string firstname() const; //getters
   std::string lastname() const;
  std::string IDnume() const;
   std::string getFullNameAuteur() const;

@@ -8,7 +8,7 @@ LDFLAGS    =
 SRCS       = Lecteur.cpp date.cpp livre.cpp auteur.cpp  main.cpp
 
 OBJS       = $(SRCS:.cpp=.o)
-TARGET     = app
+TARGET     = main
 DEPS	   = $(OBJS:.o=.d)
 
 all: $(TARGET)

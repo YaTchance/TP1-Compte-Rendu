@@ -4,7 +4,7 @@
 #include "auteur.h"
 
 enum class Genres{
-        Science_fiction, Action, Policier, Romance, Histoire, Réaliste, Fantastique, Drama
+        Science_fiction, Action, Policier, Romance, Histoire, Réaliste, Fantastique, Drama, Comédie
     };
 
 enum class Langues{
@@ -20,26 +20,24 @@ private:
   Langues _langue;
   std::string _ISBN;
   Date _datePublication;
-int _complet;
+
 
 public:
-  Livre(Auteur auteur = Auteur("n-000000", " ", " "), std::string titre = " ", Genres genre = Genres::Policier, Langues langue = Langues::Français, std::string ISBN = " ", Date datePublication = Date(2002, 7, 10), int complet = 0);
+  Livre(Auteur auteur = Auteur("n-000000", " ", " ", "2002, 7, 10"), std::string titre = " ", Genres genre = Genres::Policier, Langues langue = Langues::Français, std::string ISBN = " ", Date datePublication = Date(2002, 7, 10));
 
   std::string ISBN() const;
-  std::string getTitre() const { 
-        return _titre;}
-	Auteur getAuteur() const { 
-	  return _auteur;}
-	Langues getLangue() const { 
-	    return _langue;}
-	Genres getGenre() const { 
-	    return _genre;}
 
-	Date getDatePublication() const { 
-	    return _datePublication;}
+  std::string getTitre() const;
 
-	std::string getISBN() const { 
-	    return _ISBN;}
+	Auteur getAuteur() const ;
+
+	Langues getLangue() const ;
+
+	Genres getGenre() const;
+
+	Date getDatePublication() const;
+
+	std::string getISBN() const;
 
   
 };

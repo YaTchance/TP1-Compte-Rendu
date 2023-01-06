@@ -5,7 +5,7 @@
 #include <regex>
 #include <cassert> 
 
- Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication, int complet){
+ Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication){
   bool status = isISBN(ISBN);
   assert(status && "ISBN is not valid");
  _auteur = auteur;
@@ -13,7 +13,6 @@
    _genre = genre;
   _langue = langue;
   _ISBN = ISBN;
-  _complet = complet;
   _datePublication = datePublication;
 }
 
@@ -44,11 +43,13 @@ break;
 case Genres::Drama:
 return "Drama";
 break;
+case Genres::Comédie:
+return "Comédie";
+break;
 default:
 break;
 }
 }
-
 std::string toStringLangue(Langues l) {
 switch (l)
 {
@@ -83,7 +84,18 @@ default:
 break;
 }
 }
-
+  std::string Livre::getTitre() const { 
+        return _titre;}
+	Auteur Livre::getAuteur() const { 
+	  return _auteur;}
+	Langues Livre::getLangue() const { 
+	    return _langue;}
+	Genres Livre::getGenre() const { 
+	    return _genre;}
+	Date Livre::getDatePublication() const { 
+	    return _datePublication;}
+	std::string Livre::getISBN() const { 
+	    return _ISBN;}
 bool isISBN(std::string ISBN){
   if (regex_match (ISBN, std::regex("^[0-9]{3}(-)[0-9](-)[0-9]{4}(-)[0-9]{4}(-)[0-9]")))
     return true;
@@ -92,21 +104,17 @@ bool isISBN(std::string ISBN){
 }
 
 
-
-
  std::ostream& operator<<(std::ostream& os, const Livre& livre)  {
 
-   std::string display= "\n Le livre Emprunté: \n Auteur: "+livre.getAuteur().getFullNameAuteur()+ "\n Titre: "+ livre.getTitre() + "\n Genre: "+ toStringGenre(livre.getGenre()) + "\n Langue: "+ toStringLangue(livre.getLangue()) + "\n ISBN: "+ livre.getISBN() + "\n Date de publication: "+ toString(livre.getDatePublication());
-   /*
-   std::cout <<  "\n"
-            << "Titre : " << livre.getTitre() <<"\n"
-            << "Genre : " << toStringGenre(livre.getGenre()) << "\n"
-            << "Langue : " << toStringLangue(livre.getLangue()) << "\n"
-            << "ISBN : " << livre.getISBN() << "\n"
-            << "Date de publication : " << toString(livre.getDatePublication()) << "\n"<< std::endl;*/
-
-        os << display << std::endl;
-        return os;
+   std::string displaybook = 
+   "Le livre Emprunté: \n Auteur: "+livre.getAuteur().getFullNameAuteur()+
+   + "\n Titre: "+ livre.getTitre() 
+   +"\n Genre: "+ toStringGenre(livre.getGenre()) 
+   + "\n Langue: "+ toStringLangue(livre.getLangue()) 
+   + "\n ISBN: "+ livre.getISBN() 
+   + "\n Date de publication: "+ toString(livre.getDatePublication());
+   os << displaybook << std::endl;
+    return os;
 }
 
    

@@ -1,22 +1,23 @@
 #include <iostream>
-#include "livre.h"
-#include "Lecteur.h"
 
-class Emprunt : public Livre, public Person {
-public:
-  Emprunt(std::string firstname, std::string lastname,Auteur Auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication);
 
+class Emprunt {
 
 private:
-        std::string _disponible;
-        Date _emprunt;
+      //Date _next3days;
+      //Livre _livre;
+      std::string _takebook;
+      std::string _returnbook;
         
+public:
+
+  Emprunt(std::string takebook, std::string returnbook);
+
+  std::string takebook() const;
+  std::string returnbook() const;
+  //Livre livre() const;
+  std::string getEmprunt() const;
+  std::string getTakebook() const;
+  std::string getReturnbook() const;
+
   };
-       /* Emprunt(Person Person, Livre Livre, Date emprunt ); */
-   /*  Date getEmprunt() const {
-                         return _emprunt;
-                          };
-std::string getFullNameEmprunt() const;
-std::string disponible() const;
-};   
-std::string toStringDispo (std::string disponible);*/

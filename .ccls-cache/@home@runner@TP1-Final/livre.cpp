@@ -5,7 +5,7 @@
 #include <regex>
 #include <cassert> 
 
- Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication){
+ Livre::Livre( Auteur auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication){
   bool status = isISBN(ISBN);
   assert(status && "ISBN is not valid");
  _auteur = auteur;
@@ -14,6 +14,7 @@
   _langue = langue;
   _ISBN = ISBN;
   _datePublication = datePublication;
+
 }
 
 std::string toStringGenre(Genres g) {
@@ -84,10 +85,14 @@ default:
 break;
 }
 }
+
   std::string Livre::getTitre() const { 
         return _titre;}
-	Auteur Livre::getAuteur() const { 
+
+Auteur Livre::getAuteur() const { 
 	  return _auteur;}
+
+
 	Langues Livre::getLangue() const { 
 	    return _langue;}
 	Genres Livre::getGenre() const { 

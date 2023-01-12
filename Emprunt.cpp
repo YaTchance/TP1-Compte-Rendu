@@ -1,27 +1,20 @@
 #include "Emprunt.h"
 #include <regex>
 
-Emprunt::Emprunt(std::string takebook, std::string returnbook) {
-  _takebook = takebook;
-  _returnbook = returnbook;
+Emprunt::Emprunt(Date dateTakebook, Date dateReturnbook) {
+  _dateTakebook = dateTakebook;
+  _dateReturnbook = dateReturnbook;
   //_livre = livre;
 };
 
-std::string Emprunt::getTakebook() const {
-    return _takebook;
-};
-  std::string Emprunt::getReturnbook() const {
-    return _returnbook;
-};
-/*bool isTakebook(std::string takebook){
-  if (regex_match (takebook, std::regex("^[0-9]{4}(/)[0-9]{2}(/)[0-9]{2}")))
-    return true;
-  else 
-    return false;
-}*/
-/*  Livre Emprunt::livre() const{
-    return _livre;
-  }*/
-std::string Emprunt::getEmprunt() const {
-  return std::string(takebook() + " " +std::string(returnbook()));
-};
+Date Emprunt::getDateTakebook() const { return _dateTakebook; }
+
+Date Emprunt::getDateReturnbook() const { return _dateReturnbook; }
+
+std::ostream &operator<<(std::ostream &os, const Emprunt &emprunt) {
+  std::string displaybook =
+      "\n Emprunt: " + toString(emprunt.getDateTakebook()) +
+      "\n A rendre: " + toString(emprunt.getDateReturnbook());
+  os << displaybook << std::endl;
+  return os;
+}

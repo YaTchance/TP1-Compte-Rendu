@@ -40,7 +40,7 @@ void Date::updateYear(int year) {
     _year= year;
 }
 
-void Date::next() {
+void Date::returnbook() {
     if ((_month==12) && (_day==31)) {
       _day=1;
       _month=1;
@@ -51,7 +51,7 @@ void Date::next() {
       _month++;
     }
     else {
-      _day++;
+      _day= _day+14;
     }
 }
 

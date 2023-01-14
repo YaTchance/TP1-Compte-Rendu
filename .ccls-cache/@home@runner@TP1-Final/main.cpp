@@ -5,6 +5,16 @@
 #include "livre.h"
 #include <assert.h>
 #include <iostream>
+#include <vector>
+
+std::ostream &operator<<(std::ostream &os,
+                         const std::vector<std::string> &vect) {
+  os << "primes: ";
+  for (auto number : vect)
+    os << number << " ";
+  os << std::endl;
+  return os;
+}
 
 int main(int argc, char const *argv[]) {
 
@@ -32,9 +42,19 @@ int main(int argc, char const *argv[]) {
   Livre livre1(A2, "L'Étranger", Genres::Romance, Langues::Français,
                "978-2-7454-9012-0", datePublication1);
   
-  std::cout <<emprunt << "\n Lecteur : " << p1.getFullName() << "\n"<< livre << "\n" << std::endl;
+  std::vector<std::string> primes = {"livre1","livre2"};
+  primes.push_back("livre3");
+  std::cout << primes;
+  /*auto p = primes;
+  std::cin >> p >> std::end;
+  std::cout<<"Prime: "<< p << std::endl;*/
 
-  std::cout << emprunt1 << "Lecteur - " << p2.getFullName() << "\n"<< livre1 << std::endl;
+  std::cout << emprunt << "\n Lecteur : " << p1.getFullName() << "\n"
+            << livre << "\n"
+            << std::endl;
+
+  std::cout << emprunt1 << "Lecteur - " << p2.getFullName() << "\n"
+            << livre1 << std::endl;
 
   return 0;
 }

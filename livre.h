@@ -12,7 +12,8 @@ enum class Genres {
   Réaliste,
   Fantastique,
   Drama,
-  Comédie
+  Comédie,
+  Conte
 };
 
 enum class Langues {

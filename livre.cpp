@@ -46,6 +46,9 @@ std::string toStringGenre(Genres g) {
   case Genres::Comédie:
     return "Comédie";
     break;
+  case Genres::Conte:
+    return "Conte";
+    break;
   default:
     break;
   }

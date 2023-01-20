@@ -38,6 +38,7 @@ private:
   Date _datePublication;
 
 public:
+  Livre();
   Livre(Auteur auteur = Auteur("n-000000", " ", " ", "2002, 7, 10"),
         std::string titre = " ", Genres genre = Genres::Policier,
         Langues langue = Langues::Français, std::string ISBN = " ",

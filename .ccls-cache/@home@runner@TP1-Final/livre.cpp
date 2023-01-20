@@ -4,7 +4,14 @@
 #include <cassert>
 #include <iostream>
 #include <regex>
-
+/*Livre Livre(){
+  _auteur = Auteur("n-000000", " ", " ", "2002, 7, 10");
+  _titre = titre;
+  _genre = genre;
+  _langue = langue;
+  _ISBN = ISBN;
+  _datePublication = datePublication;
+}*/
 Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue,
              std::string ISBN, Date datePublication) {
   bool status = isISBN(ISBN);
@@ -106,7 +113,7 @@ bool isISBN(std::string ISBN) {
 std::ostream &operator<<(std::ostream &os, const Livre &livre) {
 
   std::string displaybook =
-      "Le livre Emprunté: \n Auteur: " + livre.getAuteur().getFullNameAuteur() +
+      "\n Auteur: " + livre.getAuteur().getFullNameAuteur() +
       +"\n Titre: " + livre.getTitre() +
       "\n Genre: " + toStringGenre(livre.getGenre()) +
       "\n Langue: " + toStringLangue(livre.getLangue()) +

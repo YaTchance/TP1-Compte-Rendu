@@ -4,16 +4,25 @@
 #include <cassert>
 #include <iostream>
 #include <regex>
-/*Livre Livre(){
-  _auteur = Auteur("n-000000", " ", " ", "2002, 7, 10");
+
+
+
+
+Livre::Livre(Auteur auteur, std::string titre, std::string newbookgenre, std::string newbooklangue, std::string ISBN, Date datePublication) {
+  bool status = isISBN(ISBN);
+  assert(status && "ISBN is not valid");
+  _auteur = auteur;
   _titre = titre;
-  _genre = genre;
-  _langue = langue;
+  _newbookgenre = newbookgenre;
+  _newbooklangue = newbooklangue;
   _ISBN = ISBN;
   _datePublication = datePublication;
-}*/
-Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue,
-             std::string ISBN, Date datePublication) {
+}
+
+
+
+
+Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication) {
   bool status = isISBN(ISBN);
   assert(status && "ISBN is not valid");
   _auteur = auteur;
@@ -95,14 +104,17 @@ std::string toStringLangue(Langues l) {
 }
 
 std::string Livre::getTitre() const { return _titre; }
+std::string Livre::getISBN() const { return _ISBN; }
+std::string Livre::getNewBookGenre() const { return _newbookgenre; }
+std::string Livre::getNewBookLangue() const { return _newbooklangue; }
 
 Auteur Livre::getAuteur() const { return _auteur; }
-
 Langues Livre::getLangue() const { return _langue; }
 Genres Livre::getGenre() const { return _genre; }
 Date Livre::getDatePublication() const { return _datePublication; }
-std::string Livre::getISBN() const { return _ISBN; }
+
 bool isISBN(std::string ISBN) {
+  
   if (regex_match(
           ISBN, std::regex("^[0-9]{3}(-)[0-9](-)[0-9]{4}(-)[0-9]{4}(-)[0-9]")))
     return true;
@@ -113,7 +125,7 @@ bool isISBN(std::string ISBN) {
 std::ostream &operator<<(std::ostream &os, const Livre &livre) {
 
   std::string displaybook =
-      "\n Auteur: " + livre.getAuteur().getFullNameAuteur() +
+      "\n Auteur " + livre.getAuteur().getFullNameAuteur() +"\n"+
       +"\n Titre: " + livre.getTitre() +
       "\n Genre: " + toStringGenre(livre.getGenre()) +
       "\n Langue: " + toStringLangue(livre.getLangue()) +
@@ -123,5 +135,3 @@ std::ostream &operator<<(std::ostream &os, const Livre &livre) {
   return os;
 }
 
-/*Récapitulatif ! Tout fonctionne jusqu'a l'auteur, il manque juste la class
- * emprunt + la class bliblio*/

@@ -9,8 +9,7 @@ Auteur::Auteur() {
   _lastname = " ";
 }
 
-Auteur::Auteur(std::string IDnume, std::string firstname, std::string lastname,
-               std::string born) {
+Auteur::Auteur(std::string IDnume, std::string firstname, std::string lastname, std::string born) {
   bool status = isID(IDnume);
   bool status1 = isBorn(born);
   assert(status && "ID is not valid");
@@ -29,8 +28,8 @@ std::string Auteur::lastname() const { return _lastname; }
 std::string Auteur::born() const { return _born; }
 
 std::string Auteur::getFullNameAuteur() const {
-  return std::string(IDnume() + " " + std::string(firstname()) + " " +
-                     std::string(lastname()) + " " + std::string(born()));
+  return "\n                      Auteur: \n \n Numéro numérique : "+ std::string(IDnume() + "\n Prénom : " + std::string(firstname()) + "\n Nom : " +
+                     std::string(lastname()) + "\n Date de naissance : " + std::string(born()));
 };
 
 bool isID(std::string IDnume) {
@@ -41,7 +40,7 @@ bool isID(std::string IDnume) {
 }
 
 bool isBorn(std::string born) {
-  if (regex_match(born, std::regex("^[0-9]{4}(/)[0-9]{2}(/)[0-9]{2}")))
+  if (regex_match(born, std::regex("^[0-9]{4}(,)[0-9]{2}(,)[0-9]{2}")))
     return true;
   else
     return false;

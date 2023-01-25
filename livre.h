@@ -36,16 +36,21 @@ private:
   Langues _langue;
   std::string _ISBN;
   Date _datePublication;
+  std::string _newbookgenre;
+  std::string _newbooklangue;
 
 public:
-  Livre();
+
+  Livre(Auteur auteur = Auteur("n-000000", " ", " ", "2002, 7, 10"),std::string titre= " ", std::string newbookgenre = " ",std::string newbooklangue= " ",std::string ISBN= " ", Date datePublication = Date(2002, 7, 10));
+
   Livre(Auteur auteur = Auteur("n-000000", " ", " ", "2002, 7, 10"),
         std::string titre = " ", Genres genre = Genres::Policier,
         Langues langue = Langues::Français, std::string ISBN = " ",
         Date datePublication = Date(2002, 7, 10));
 
   std::string ISBN() const;
-
+  std::string newbookgenre() const;
+  std::string newbooklangue()const;
   std::string getTitre() const;
 
   Auteur getAuteur() const;
@@ -57,6 +62,9 @@ public:
   Date getDatePublication() const;
 
   std::string getISBN() const;
+std::string getNewBookGenre() const;
+std::string getNewBookLangue() const;
+
 };
 std::ostream &operator<<(std::ostream &os, const Livre &livre);
 

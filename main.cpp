@@ -9,7 +9,7 @@
 
 std::ostream &operator<<(std::ostream &os,
                          const std::vector<std::string> &Blilio) {
-  os << "Blibliothèque: ";
+  os << "\n Blibliothèque: ";
   for (auto number : Blilio)
     os << number << " ";
   os << std::endl;
@@ -29,37 +29,16 @@ int main(int argc, char const *argv[]) {
   /*****************************************************************************************************************/
   // Auteur
   /*****************************************************************************************************************/
-  Auteur A1("n-258985", "Molière", "", "1622/01/15");
-  Auteur A2("n-258875", "Albert", "Camus", "1913/08/07");
-  Auteur A3("n-258800", "Joseph", "Jacobs", "1854/08/29");
-  Auteur A4("n-258960", "Sarah", "Rivens", "2022/08/12");
+  Auteur A1("n-258985", "Jean-Baptiste alias (Molière)", "Poquelin",
+            "1622,01,15");
+  Auteur A2("n-258875", "Albert", "Camus", "1913,08,07");
+  Auteur A3("n-258800", "Joseph", "Jacobs", "1854,08,29");
+  Auteur A4("n-258960", "Sarah", "Rivens", "2022,08,12");
   Auteur A5("n-258900", "JEAN ", "DE LA FONTAINE",
-            "1684/04/24"); // 24 avril 1684
+            "1684,04,24"); // 24 avril 1684
   Auteur A6(std::string IDnume, std::string firstname, std::string lastname,
             std::string born);
 
-  /*****************************************************************************************************************/
-  // Emprunt
-  /*****************************************************************************************************************/
-  Date take(2022, 12, 10);
-  Date retun(2022, 12, 10);
-  retun.returnbook();
-  Emprunt emprunt(take, retun);
-
-  Date take1(2002, 10, 8);
-  Date retun1(2002, 10, 8);
-  retun1.returnbook();
-  Emprunt emprunt1(take1, retun1);
-
-  Date take2(2023, 10, 15);
-  Date retun2(2002, 10, 15);
-  retun2.returnbook();
-  Emprunt emprunt2(take2, retun2);
-
-  Date take3(2023, 10, 15);
-  Date retun3(2023, 10, 15);
-  retun3.returnbook();
-  Emprunt emprunt3(take1, retun3);
   /*****************************************************************************************************************/
   // Livre
   /*****************************************************************************************************************/
@@ -83,199 +62,300 @@ int main(int argc, char const *argv[]) {
   Livre livre4(A5, "FABLES", Genres::Conte, Langues::Français,
                "978-2-7454-9050-0", datePublication4);
 
-  // Date datePublication5(2022, 8, 24);
-  Livre livre6(A5, "FABLES", Genres::Conte, Langues::Français,
-               "978-2-7454-9050-0", datePublication4);
+  Livre ajoutelivre(Auteur auteur, std::string titre, std::string newbookgenre,
+                    std::string newbooklangue, std::string ISBN,
+                    Date datePublicationne);
+  /*****************************************************************************************************************/
+  // Emprunt
+  /*****************************************************************************************************************/
+  Date take(2022, 01, 17);
+  Date retun(2022, 01, 17);
+  retun.returnbook();
+  Emprunt emprunt(take, retun);
+
+  Date take1(2022, 01, 28);
+  Date retun1(2022, 01, 28);
+  retun1.returnbook();
+  Emprunt emprunt1(take1, retun1);
+
+  Date take2(2022, 01, 15);
+  Date retun2(2022, 01, 15);
+  retun2.returnbook();
+  Emprunt emprunt2(take2, retun2);
+
+  Date take3(2022, 01, 15);
+  Date retun3(2022, 01, 15);
+  retun3.returnbook();
+  Emprunt emprunt3(take3, retun3);
+
+  Date take4(2022, 01, 15);
+  Date retun4(2022, 01, 15);
+  retun4.returnbook();
+  Emprunt emprunt4(take4, retun4);
+
+  Date take5(2022, 01, 15);
+  Date retun5(2022, 01, 15);
+  retun5.returnbook();
+  Emprunt emprunt5(take5, retun5);
   /*****************************************************************************************************************/
   // Vecteur Blibliothèque
   /*****************************************************************************************************************/
+  std::vector<std::string> AjoutBook;
   std::vector<std::string> Bliblio = {
-      "\n ",
-      "\n Le livre numéro: 1 \n",
-      "\n Auteur: " + livre.getAuteur().getFullNameAuteur(),
+  
+      "\n ", //Position 1 du vecteur
+      "\n Le livre numéro: 1 "+ livre.getAuteur().getFullNameAuteur(),
+      "\n",
       "\n Titre: " + livre.getTitre(),
       "\n Langue: " + toStringLangue(livre.getLangue()),
       "\n ISBN: " + livre.getISBN(),
       "\n Date de publication: " + toString(livre.getDatePublication()),
-
-      "\n ",
-      "\n Le livre numéro: 2 \n",
-      "\n Auteur: " + livre1.getAuteur().getFullNameAuteur(),
+  
+      "\n**************************************************************************************************"
+  
+      "\n ",//Position 8 du vecteur
+      "\n Le livre numéro: 2 "+ livre1.getAuteur().getFullNameAuteur(),
+      "\n",
       "\n Titre: " + livre1.getTitre(),
       "\n Langue: " + toStringLangue(livre1.getLangue()),
       "\n ISBN: " + livre1.getISBN(),
       "\n Date de publication: " + toString(livre1.getDatePublication()),
-
-      "\n ",
-      "\n Le livre numéro: 3 \n",
-      "\n Auteur: " + livre2.getAuteur().getFullNameAuteur(),
+  
+      "\n**************************************************************************************************"
+  
+      "\n ",//Position 15 du vecteur
+      "\n Le livre numéro: 3 " + livre2.getAuteur().getFullNameAuteur(),
+      "\n",
       "\n Titre: " + livre2.getTitre(),
       "\n Langue: " + toStringLangue(livre2.getLangue()),
       "\n ISBN: " + livre2.getISBN(),
       "\n Date de publication: " + toString(livre2.getDatePublication()),
-
-      "\n ",
-      "\n Le livre numéro: 4 \n",
-      "\n Auteur: " + livre3.getAuteur().getFullNameAuteur(),
+      "\n**************************************************************************************************"
+      "\n ", //Position 22 du vecteur
+      "\n Le livre numéro: 4" + livre3.getAuteur().getFullNameAuteur(),
+      "\n",
       "\n Titre: " + livre3.getTitre(),
       "\n Langue: " + toStringLangue(livre3.getLangue()),
       "\n ISBN: " + livre3.getISBN(),
       "\n Date de publication: " + toString(livre3.getDatePublication()),
-
-      "\n ",
-      "\n Le livre numéro: 5 \n",
-      "\n Auteur: " + livre4.getAuteur().getFullNameAuteur(),
+      "\n**************************************************************************************************"
+      "\n ",//Position 29 du vecteur
+      "\n Le livre numéro: 5 " + livre4.getAuteur().getFullNameAuteur(),
+      "\n",
       "\n Titre: " + livre4.getTitre(),
       "\n Langue: " + toStringLangue(livre3.getLangue()),
       "\n ISBN: " + livre4.getISBN(),
       "\n Date de publication: " + toString(livre4.getDatePublication()),
+  
+      "\n*************************************************************************************************",
+      "\n",
+
 
   };
 
-  std::vector<std::string> AjoutBook;
-  for (auto it = Bliblio.begin(); it != Bliblio.end(); ++it)
+  for (auto it = AjoutBook.begin(); it != AjoutBook.end(); ++it)
     AjoutBook.push_back(*it);
 
   /*****************************************************************************************************************/
-  // Start du programme
+  // Commencement du programme
   /*****************************************************************************************************************/
+
+
+
+  
   bool disponible = true;
+  bool newbook = false;
   int Choix;
-  int i;
+  int i = 0;
   std::cout << "\n Bonjour à vous,\n je suis votre guide pour votre recherche "
                "d'ouvrage \n ";
-  std::cout << "\n*************************************************************"
-               "*************************************";
+  std::cout << "\n**************************************************************************************************\n";
+  
   while (i < 5) {
 
     std::cout << "\n";
     std::cout
         << "Veuillez choisir l'une des options en saisisant le numéro : \n "
            "1 : Choisir un livre \n OU \n 2 : Ajouter un livre : \n";
-    std::cout << "\n";
+    std::cout
+        << "\n**************************************************************************************************\n"<<"\n";
     std::cin >> Choix;
-    
-    if (Choix >2) {  std::cout
-          << "Cettte option n'est pas dans la liste de choix" << std::endl;}
+
+/*****************************************************************************************************************
+    // Sécurity si on ne met pas : 1 ou 2
+****************************************************************************************************************/
+
+    if (Choix > 2) {
+      std::cout << "Cettte option n'est pas dans la liste de choix"
+                << "\n**************************************************************************************************"
+                << std::endl;
+    } else if (Choix < 1) {
+      std::cout << "Cettte option n'est pas dans la liste de choix"
+                << "\n*********************************************************"
+                   "*****************************************"
+                << std::endl;
+    }
+
+/*****************************************************************************************************************
+// Choix 1 : Choisir un livre :
+***************************************************************************************************************/
+
     else if (Choix == 1) {
-      /*****************************************************************************************************************/
-      // Domaine Blibliotheque
-      /*****************************************************************************************************************/
-      std::cout << "\n*********************************************************"
-                   "*****************************************";
-      
-      std::cout << "\n Livre numéro 1: " << livre << "\n" << std::endl;
-      std::cout << "\n*********************************************************"
-                   "*****************************************";
-      
-      std::cout << "\n Livre numéro 2: " << livre1 << "\n" << std::endl;
-      std::cout << "\n*********************************************************"
-                   "*****************************************";
-      std::cout << "\n Livre numéro 3: " << livre2 << "\n" << std::endl;
-      std::cout << "\n*********************************************************"
-                   "*****************************************";
-      
-      std::cout << "\n Livre numéro 4: " << livre3 << "\n" << std::endl;
-      std::cout << "\n*********************************************************"
-                   "*****************************************";
-      
-      std::cout << "\n Livre numéro 5: " << livre4 << "\n" << std::endl;
-       
 
-      /****************************************************************************************************************/
+ /*****************************************************************************************************************
+ // Domaine Blibliotheque
+ ****************************************************************************************************************/
 
-      std::cout << "Pour savoir la disponibilité de votre livre.\n Vueillez "
-                   "saisir le numéro du livre : \n";
+      std::cout << Bliblio;
+
+/*****************************************************************************************************************
+// Programme pour la disponibilité du livre
+****************************************************************************************************************/
+      std::cout <<"\n**************************************************************************************************\n"
+        << "Pour savoir la disponibilité de votre livre.\n Vueillez saisir le numéro du livre : \n";
       std::cout << "\n";
       std::cin >> numérodulivre;
-      std::cout << "\n**************************************************************************************************";
+      std::cout << "\n**************************************************************************************************\n";
       if (numérodulivre == 1 && disponible == true) {
-        std::cout << p1.getFullName() << "\n"
-                  << emprunt << "\n"
-                  << livre << "\n**********************************************************"
-                  << std::endl;
+        std::cout
+            << p1.getFullName() << "\n"
+            << emprunt << "\n"
+            << livre
+            << "\n**********************************************************"
+            << std::endl;
 
       } else if (numérodulivre == 2 && disponible == true) {
-        std::cout << p2.getFullName() << "\n"
-                  << emprunt1 << "\n"
-                  << livre1 << "\n**********************************************************"
-                  << std::endl;
+        std::cout
+            << p2.getFullName() << "\n"
+            << emprunt1 << "\n"
+            << livre1
+            << "\n**********************************************************"
+            << std::endl;
 
       } else if (numérodulivre == 3 && disponible == true) {
-        std::cout << p1.getFullName() << "\n"
-                  << emprunt2 << "\n"
-                  << livre2 << "\n**********************************************************"
-                  << std::endl;
+        std::cout
+            << p1.getFullName() << "\n"
+            << emprunt2 << "\n"
+            << livre2
+            << "\n**********************************************************"
+            << std::endl;
 
       } else if (numérodulivre == 4 && disponible == true) {
-        std::cout << p3.getFullName() << "\n"
-                  << emprunt3 << "\n"
-                  << livre3 <<"\n**********************************************************"
-                  << std::endl;
+        std::cout
+            << p3.getFullName() << "\n"
+            << emprunt3 << "\n"
+            << livre3
+            << "\n**********************************************************"
+            << std::endl;
+      
       } else if (numérodulivre == 5 && disponible == true) {
-        std::cout << p3.getFullName() << "\n"
-                  << emprunt3 << "\n"
-                  << livre4 << "\n**********************************************************"
-                  << std::endl;
-      } else {
-        std::cout << "n'est pas disponible" << std::endl;
+        std::cout
+            << p3.getFullName() << "\n"
+            << emprunt3 << "\n"
+            << livre4
+            << "\n**********************************************************"
+            << std::endl;
+      
+      } 
+    if (numérodulivre == 6 && newbook == true) {
+        std::cout
+            << "Disponible"
+            << "\n"
+            << std::endl;
+       std::vector<std::string> vec1_cc = {Bliblio.begin()+37, Bliblio.end()}; //29  //36 pour le 6 
+  vec1_cc.size();
+  for (const std::string& i : vec1_cc) {
+    std::cout << i << "  ";
+  }
+
+      }else {  std::cout
+            << "\n N'existe pas"
+            << "\n**********************************************************"
+            << std::endl;
+       } 
+      
+      
+    }
+  if (numérodulivre == 7 && newbook == true) {
+        std::cout
+            << "Disponible"
+            << "\n"
+            << "\n"
+            << ajoutelivre
+            << "\n**********************************************************"
+            << std::endl;
       }
 
-    } else if (Choix==2){
-
-    std::cout
-          << "\n************************************************************************************************** \n "
-      "Pour ajouter un auteur dans la blibliothèque !" 
-      "\n Merci de suivre exactement ces instructions ! \n "
-      "\n 1 : L'identité numérique du livre (ex : n-xxxxxx )\n"
-      "\n 2: Le prénom de l'auteur \n"
-     "\n 3: Le nom de l'auteur \n "
-      "\n 4: La date de naissance de l'auteur (ex : xxxx/xx/xx)\n"
-      "\n 5: Le titre \n " 
-      "\n 6: Genre (ex : Conte, Action, Policier ect..)\n"
-      "\n 7: Langue ( ex : Français, Anglais, Espagnol, Allemand ect..)\n"
-      "\n 7: ISBN (ex: xxx-x-xxxx-xxxx-x)\n"
-      "\n 7: Date de publication (ex: xxxx,xx,xx) \n"
-        "\n Merci de votre comprhésion ! \n"
-          << "\n******************************************************************"<<std::endl;
-       std::cout << "\n Start \n";
+      /*****************************************************************************************************************
+      // Programme pour l'ajout d'un livre
+      ****************************************************************************************************************/
+   if (Choix == 2) {
+      std::cout << "\n************************************************************************************************** \n "
+                   "Pour ajouter un livre dans la blibliothèque !"
+                   "\n Merci de suivre exactement ces instructions ! \n \n De plus : Remplacer les espaces entre les mots par (_) \n "
+                   "\n 1 : L'identité numérique du livre (ex : n-xxxxxx )\n"
+                   "\n 2: Le prénom de l'auteur \n"
+                   "\n 3: Le nom de l'auteur \n "
+                   "\n 4: La date de naissance de l'auteur (ex : xxxx,xx,xx) année/mois/jour \n"
+                   "\n 5: Le titre \n "
+                   "\n 6: Genre (ex : Conte, Action, Policier ect..)\n"
+                   "\n 7: Langue ( ex : Français, Anglais, Espagnol, Allemand "
+                   "ect..)\n"
+                   "\n 8: ISBN (ex: xxx-x-xxxx-xxxx-x)\n"
+                   "\n 9: Date de publication (ex: xxxx,xx,xx) année/mois/jour \n"
+                   "\n Merci de votre comprhésion ! \n"
+                << "\n*****************************************************************************************************"
+                << std::endl;
+      std::cout << "\n Start \n";
+/*****************************************************************************************************************************
+//VARIABLE
+**********************************************************************************************************************************/
       std::string IDnume;
       std::string firstname;
       std::string lastname;
       std::string born;
       std::string titre;
-      std::string genre;
-      std::string langue;
+      std::string newbookgenre;
+      std::string newbooklangue;
       std::string ISBN;
-      std::string datePublication;
+      std::string datePublicationne;
 
-      std::cout << "1)",std::cin >> IDnume;  
-     std::cout << "2)",std::cin >> firstname;
-    std::cout << "3)",std::cin >> lastname;
-    std::cout << "4)",std::cin >> born;
-    std::cout << "5)",std::cin >> titre;
-    std::cout << "6)",std::cin >> genre;
-    std::cout << "7)",std::cin >> langue;
-    std::cout << "8)",std::cin >> ISBN;
-    std::cout << "9)",std::cin >> datePublication;
+      std::cout << "1) ", std::cin >> IDnume;
+      std::cout << "2) ", std::cin >> firstname;
+      std::cout << "3) ", std::cin >> lastname;
+      std::cout << "4) ", std::cin >> born;
+      std::cout << "5) ", std::cin >> titre;
+      std::cout << "6) ", std::cin >> newbookgenre;
+      std::cout << "7) ", std::cin >> newbooklangue;
+      std::cout << "8) ", std::cin >> ISBN;
+      std::cout << "9) ", std::cin >> datePublicationne;
       Auteur A6(IDnume, firstname, lastname, born);
-      Livre livre6(Auteur auteur, std::string titre, Genres genre, Langues langue,
-             std::string ISBN, Date datePublication);
-      // langue, std::string ISBN, Date datePublication);
+      Livre ajoutelivre(A6, titre, newbookgenre, newbooklangue, ISBN,
+                        datePublication);
 
       std::cout << "\n";
+    
       std::cout << "Création de l'auteur avec succes ! \n"
-                << A6.getFullNameAuteur() << std::endl;
-      // AjoutBook.push_back(A5);
-      std::cout << "\n";
+                << A6.getFullNameAuteur() << ajoutelivre.getTitre()
+                << "\n Genre : " << ajoutelivre.getNewBookGenre()
+                << "\n Langue : "
+                << ajoutelivre.getNewBookLangue() + "\n ISBN : "
+                << ajoutelivre.getISBN() << "\n Date de publication : "
+                << toString(ajoutelivre.getDatePublication()) << std::endl;
 
       AjoutBook.push_back(
-          /*"\n Auteur : " +*/ livre.getAuteur().getFullNameAuteur() + "\n Titre : "+livre.getTitre() +"\n Langue : "
-          +toStringLangue(livre.getLangue()) + "\n ISBN : "+livre.getISBN() +"\n Date de publication : "+
-          toString(livre.getDatePublication()));
-      std::cout << AjoutBook;
-      // i++;
+          "\n Livre ajoutée :"  + A6.getFullNameAuteur() +
+          "\n Titre : " + ajoutelivre.getTitre() +
+          "\n Genre : " + ajoutelivre.getNewBookGenre() +
+          "\n Langue : " + ajoutelivre.getNewBookLangue() +
+          "\n ISBN : " + ajoutelivre.getISBN() + "\n Date de publication : " +
+          toString(ajoutelivre.getDatePublication()));
+
+      Bliblio.insert(Bliblio.end(), AjoutBook.begin(), AjoutBook.end());
+      AjoutBook.clear();
+      newbook=true;
+      std::cout << "\n********************************************************************************************"<< Bliblio;
+      std::cout << "\n********************************************************************************************\n";
     }
-    //}
-  }
-}
+    }
+} // Je suis entrain de faire le AJOUT BOOK

@@ -7,7 +7,9 @@
 
 
 
-
+/*****************************************************************************************************************************
+                                            Fonctionalité des Constructeurs Livre
+**********************************************************************************************************************************/
 Livre::Livre(Auteur auteur, std::string titre, std::string newbookgenre, std::string newbooklangue, std::string ISBN, Date datePublication) {
   bool status = isISBN(ISBN);
   assert(status && "ISBN is not valid");
@@ -19,9 +21,6 @@ Livre::Livre(Auteur auteur, std::string titre, std::string newbookgenre, std::st
   _datePublication = datePublication;
 }
 
-
-
-
 Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue, std::string ISBN, Date datePublication) {
   bool status = isISBN(ISBN);
   assert(status && "ISBN is not valid");
@@ -32,7 +31,9 @@ Livre::Livre(Auteur auteur, std::string titre, Genres genre, Langues langue, std
   _ISBN = ISBN;
   _datePublication = datePublication;
 }
-
+/*****************************************************************************************************************************
+                                            Enumérations des genres et langues des livres
+**********************************************************************************************************************************/
 std::string toStringGenre(Genres g) {
   switch (g) {
   case Genres::Science_fiction:
@@ -103,25 +104,36 @@ std::string toStringLangue(Langues l) {
   }
 }
 
+/*****************************************************************************************************************************
+                                 Visualisation de toutes les variables privées dans la class Livre
+**********************************************************************************************************************************/
 std::string Livre::getTitre() const { return _titre; }
 std::string Livre::getISBN() const { return _ISBN; }
 std::string Livre::getNewBookGenre() const { return _newbookgenre; }
 std::string Livre::getNewBookLangue() const { return _newbooklangue; }
 
+/*****************************************************************************************************************************
+                                 Visualisation de toutes les variables privées dans les autres class
+**********************************************************************************************************************************/
 Auteur Livre::getAuteur() const { return _auteur; }
 Langues Livre::getLangue() const { return _langue; }
 Genres Livre::getGenre() const { return _genre; }
 Date Livre::getDatePublication() const { return _datePublication; }
 
+
+/*****************************************************************************************************************************
+                                 Déclaration et fonctionnalité du Test
+**********************************************************************************************************************************/
 bool isISBN(std::string ISBN) {
-  
   if (regex_match(
           ISBN, std::regex("^[0-9]{3}(-)[0-9](-)[0-9]{4}(-)[0-9]{4}(-)[0-9]")))
     return true;
   else
     return false;
 }
-
+/*****************************************************************************************************************************
+                                Visualtion du contructeur livre pour l'intégrer facilement dans le "MAIN"
+**********************************************************************************************************************************/
 std::ostream &operator<<(std::ostream &os, const Livre &livre) {
 
   std::string displaybook =

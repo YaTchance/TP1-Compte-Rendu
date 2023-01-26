@@ -12,7 +12,7 @@ public:
   void updateMonth(int month);
   void updateDay(int day);
   void updateYear(int year);
-  void returnbook();
+  void returnbook(); //Rajout de cette fonction pour la date retour du livre de 2 semaines.
   void back();
 
 private:

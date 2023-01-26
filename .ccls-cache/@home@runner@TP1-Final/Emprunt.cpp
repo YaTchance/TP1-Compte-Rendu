@@ -4,7 +4,6 @@
 Emprunt::Emprunt(Date dateTakebook, Date dateReturnbook) {
   _dateTakebook = dateTakebook;
   _dateReturnbook = dateReturnbook;
-  //_livre = livre;
 };
 
 Date Emprunt::getDateTakebook() const { return _dateTakebook; }

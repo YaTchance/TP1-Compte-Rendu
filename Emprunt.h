@@ -6,8 +6,6 @@
 class Emprunt {
 
 private:
-  // Date _next3days;
-  // Livre _livre;
   Date _dateTakebook;
   Date _dateReturnbook;
 

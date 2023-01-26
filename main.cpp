@@ -100,6 +100,7 @@ int main(int argc, char const *argv[]) {
   /*****************************************************************************************************************/
   // Vecteur Blibliothèque
   /*****************************************************************************************************************/
+  
   std::vector<std::string> AjoutBook;
   std::vector<std::string> Bliblio = {
   
@@ -149,6 +150,7 @@ int main(int argc, char const *argv[]) {
   
       "\n*************************************************************************************************",
       "\n",
+     
 
 
   };
@@ -221,7 +223,7 @@ int main(int argc, char const *argv[]) {
             << p1.getFullName() << "\n"
             << emprunt << "\n"
             << livre
-            << "\n**********************************************************"
+            << "\n**************************************************************************************************"
             << std::endl;
 
       } else if (numérodulivre == 2 && disponible == true) {
@@ -229,7 +231,7 @@ int main(int argc, char const *argv[]) {
             << p2.getFullName() << "\n"
             << emprunt1 << "\n"
             << livre1
-            << "\n**********************************************************"
+            << "\n**************************************************************************************************"
             << std::endl;
 
       } else if (numérodulivre == 3 && disponible == true) {
@@ -237,7 +239,7 @@ int main(int argc, char const *argv[]) {
             << p1.getFullName() << "\n"
             << emprunt2 << "\n"
             << livre2
-            << "\n**********************************************************"
+            << "\n**************************************************************************************************"
             << std::endl;
 
       } else if (numérodulivre == 4 && disponible == true) {
@@ -245,7 +247,7 @@ int main(int argc, char const *argv[]) {
             << p3.getFullName() << "\n"
             << emprunt3 << "\n"
             << livre3
-            << "\n**********************************************************"
+            << "\n**************************************************************************************************"
             << std::endl;
       
       } else if (numérodulivre == 5 && disponible == true) {
@@ -253,39 +255,45 @@ int main(int argc, char const *argv[]) {
             << p3.getFullName() << "\n"
             << emprunt3 << "\n"
             << livre4
-            << "\n**********************************************************"
+            << "\n**************************************************************************************************"
             << std::endl;
       
-      } 
-    if (numérodulivre == 6 && newbook == true) {
+      }else if (numérodulivre == 6 && newbook == true) {
         std::cout
             << "Disponible"
             << "\n"
             << std::endl;
-       std::vector<std::string> vec1_cc = {Bliblio.begin()+37, Bliblio.end()}; //29  //36 pour le 6 
-  vec1_cc.size();
-  for (const std::string& i : vec1_cc) {
+ std::vector<std::string> vec1_cc = {Bliblio.begin()+37, Bliblio.end()}; 
+    for (const std::string& i : vec1_cc) {
     std::cout << i << "  ";
+      newbook=false;
   }
-
-      }else {  std::cout
+      } else if (numérodulivre == 7 && newbook == true) {
+     std::cout
+            << "Disponible"
+            << "\n"
+            << std::endl;
+     std::vector<std::string> vec1_cc = {Bliblio.begin()+38, Bliblio.end()}; 
+     for (const std::string& i : vec1_cc) {
+     std::cout << i << "  ";
+       newbook=false;
+  }
+      }else if (numérodulivre == 6 && newbook == false) {
+        std::cout
+            << "Disponible"
+            << "\n"
+            << std::endl;
+ std::vector<std::string> vec1_cc = {Bliblio.begin()+37, Bliblio.end()-1}; 
+    for (const std::string& i : vec1_cc) {
+    std::cout << i << "  ";
+      newbook=true;
+  }
+    } else {  std::cout
             << "\n N'existe pas"
-            << "\n**********************************************************"
+            << "\n**************************************************************************************************"
             << std::endl;
        } 
-      
-      
     }
-  if (numérodulivre == 7 && newbook == true) {
-        std::cout
-            << "Disponible"
-            << "\n"
-            << "\n"
-            << ajoutelivre
-            << "\n**********************************************************"
-            << std::endl;
-      }
-
       /*****************************************************************************************************************
       // Programme pour l'ajout d'un livre
       ****************************************************************************************************************/
@@ -335,7 +343,7 @@ int main(int argc, char const *argv[]) {
 
       std::cout << "\n";
     
-      std::cout << "Création de l'auteur avec succes ! \n"
+      std::cout << "Création de du livre avec succes ! \n"
                 << A6.getFullNameAuteur() << ajoutelivre.getTitre()
                 << "\n Genre : " << ajoutelivre.getNewBookGenre()
                 << "\n Langue : "
@@ -344,12 +352,12 @@ int main(int argc, char const *argv[]) {
                 << toString(ajoutelivre.getDatePublication()) << std::endl;
 
       AjoutBook.push_back(
-          "\n Livre ajoutée :"  + A6.getFullNameAuteur() +
+         "\n Livre ajoutée :"  + A6.getFullNameAuteur() +
           "\n Titre : " + ajoutelivre.getTitre() +
           "\n Genre : " + ajoutelivre.getNewBookGenre() +
           "\n Langue : " + ajoutelivre.getNewBookLangue() +
           "\n ISBN : " + ajoutelivre.getISBN() + "\n Date de publication : " +
-          toString(ajoutelivre.getDatePublication()));
+          toString(ajoutelivre.getDatePublication())+"\n********************************************************************************************\n");
 
       Bliblio.insert(Bliblio.end(), AjoutBook.begin(), AjoutBook.end());
       AjoutBook.clear();
@@ -358,4 +366,5 @@ int main(int argc, char const *argv[]) {
       std::cout << "\n********************************************************************************************\n";
     }
     }
+  
 } // Je suis entrain de faire le AJOUT BOOK

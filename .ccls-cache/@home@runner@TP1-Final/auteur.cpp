@@ -48,7 +48,7 @@ bool isID(std::string IDnume) {
 }
 
 bool isBorn(std::string born) {
-  if (regex_match(born, std::regex("^[0-9]{4}(,)[0-9]{2}(,)[0-9]{2}")))
+  if (regex_match(born, std::regex("^[0-9]{4}(/)[0-9]{2}(/)[0-9]{2}")))
     return true;
   else
     return false;

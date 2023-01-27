@@ -33,13 +33,11 @@ int main(int argc, char const *argv[]) {
   /*****************************************************************************************************************
                                                         Auteur
   *****************************************************************************************************************/
-  Auteur A1("n-258985", "Jean-Baptiste alias (Molière)", "Poquelin",
-            "1622,01,15");
-  Auteur A2("n-258875", "Albert", "Camus", "1913,08,07");
-  Auteur A3("n-258800", "Joseph", "Jacobs", "1854,08,29");
-  Auteur A4("n-258960", "Sarah", "Rivens", "2022,08,12");
-  Auteur A5("n-258900", "JEAN ", "DE LA FONTAINE",
-            "1684,04,24"); // 24 avril 1684
+  Auteur A1("n-258985", "Jean-Baptiste alias (Molière)", "Poquelin","1622/01/15");
+  Auteur A2("n-258875", "Albert", "Camus", "1913/08/07");
+  Auteur A3("n-258800", "Joseph", "Jacobs", "1854/08/29");
+  Auteur A4("n-258960", "Sarah", "Rivens", "2022/08/12");
+  Auteur A5("n-258900", "JEAN ", "DE LA FONTAINE","1684/04/24"); 
   Auteur A6(std::string IDnume, std::string firstname, std::string lastname,
             std::string born);
 
@@ -167,6 +165,7 @@ int main(int argc, char const *argv[]) {
   
   bool disponible = true;
   bool newbook = false;
+  bool encoreunnouveaulivre = false;
   int Choix;
   int i = 0;
   std::cout << "\n Bonjour à vous,\n je suis votre guide pour votre recherche "
@@ -219,7 +218,7 @@ int main(int argc, char const *argv[]) {
       std::cin >> numérodulivre;
       std::cout << "\n**************************************************************************************************\n";
       if (numérodulivre == 1 && disponible == true) {
-        std::cout
+        std::cout <<"Emprunteur : \n"
             << p1.getFullName() << "\n"
             << emprunt << "\n"
             << livre
@@ -227,7 +226,7 @@ int main(int argc, char const *argv[]) {
             << std::endl;
 
       } else if (numérodulivre == 2 && disponible == true) {
-        std::cout
+        std::cout<<"Emprunteur : \n"
             << p2.getFullName() << "\n"
             << emprunt1 << "\n"
             << livre1
@@ -235,7 +234,7 @@ int main(int argc, char const *argv[]) {
             << std::endl;
 
       } else if (numérodulivre == 3 && disponible == true) {
-        std::cout
+        std::cout<<"Emprunteur : \n"
             << p1.getFullName() << "\n"
             << emprunt2 << "\n"
             << livre2
@@ -243,7 +242,7 @@ int main(int argc, char const *argv[]) {
             << std::endl;
 
       } else if (numérodulivre == 4 && disponible == true) {
-        std::cout
+        std::cout<<"Emprunteur : \n"
             << p3.getFullName() << "\n"
             << emprunt3 << "\n"
             << livre3
@@ -251,7 +250,7 @@ int main(int argc, char const *argv[]) {
             << std::endl;
       
       } else if (numérodulivre == 5 && disponible == true) {
-        std::cout
+        std::cout<<"Emprunteur : \n"
             << p3.getFullName() << "\n"
             << emprunt3 << "\n"
             << livre4
@@ -298,21 +297,22 @@ int main(int argc, char const *argv[]) {
  /*****************************************************************************************************************
                                   Choix 2 : Pour ajouter un livre dans la blibliothèque
 ****************************************************************************************************************/
+
   
-   if (Choix == 2) {
+   if (Choix == 2 && encoreunnouveaulivre==false) {
       std::cout << "\n************************************************************************************************** \n "
                    "Pour ajouter un livre dans la blibliothèque !"
-                   "\n Merci de suivre exactement ces instructions ! \n \n De plus : Remplacer les espaces entre les mots par (_) \n "
+                   "\n Merci de suivre exactement ces instructions ! \n ! Attention ! \n De plus : Remplacer les espaces entre les mots par (_) (ex :Joseph-Jacobs) \n "
                    "\n 1 : L'identité numérique du livre (ex : n-xxxxxx )\n"
                    "\n 2: Le prénom de l'auteur \n"
                    "\n 3: Le nom de l'auteur \n "
-                   "\n 4: La date de naissance de l'auteur (ex : xxxx,xx,xx) année/mois/jour \n"
+                   "\n 4: La date de naissance de l'auteur (ex : xxxx/xx/xx) année/mois/jour \n"
                    "\n 5: Le titre \n "
                    "\n 6: Genre (ex : Conte, Action, Policier ect..)\n"
                    "\n 7: Langue ( ex : Français, Anglais, Espagnol, Allemand "
                    "ect..)\n"
                    "\n 8: ISBN (ex: xxx-x-xxxx-xxxx-x)\n"
-                   "\n 9: Date de publication (ex: xxxx,xx,xx) année/mois/jour \n"
+                   "\n 9: Date de publication (ex: xxxx/xx/xx) année/mois/jour \n"
                    "\n Merci de votre comprhésion ! \n"
                 << "\n*****************************************************************************************************"
                 << std::endl;
@@ -364,12 +364,14 @@ int main(int argc, char const *argv[]) {
             Commande pour pousser toutes les informations du nouveau livre dans <le vecteur Ajoutbook> ligne #104
 **********************************************************************************************************************************/
       AjoutBook.push_back(
-         "\n Livre ajoutée :"  + A6.getFullNameAuteur() +
+         "\n Livre numéro 6 :"  + A6.getFullNameAuteur() +
           "\n Titre : " + ajoutelivre.getTitre() +
           "\n Genre : " + ajoutelivre.getNewBookGenre() +
           "\n Langue : " + ajoutelivre.getNewBookLangue() +
           "\n ISBN : " + ajoutelivre.getISBN() + "\n Date de publication : " +toString(ajoutelivre.getDatePublication())+
         "\n********************************************************************************************\n");
+
+     
 /*****************************************************************************************************************************
 Commande pour inseré <le vecteur AjoutBook> dans <Le vecteur Bliblio> pour visualiser les données d'un livre ajouter dans le vecteur <Bliblio>
 **********************************************************************************************************************************/
@@ -380,11 +382,103 @@ Commande .clear permet d'nitialiser le vecteur <AjoutBook> et de sauvegarder les
 **********************************************************************************************************************************/     
       AjoutBook.clear();
       newbook=true;
+     encoreunnouveaulivre=true;
 /*****************************************************************************************************************************
                                    Commande pour afficher le nouveau vecteur <Bliblio>
 **********************************************************************************************************************************/
       std::cout << "\n********************************************************************************************"<< Bliblio;
       std::cout << "\n********************************************************************************************\n";
+     
+    } else if (Choix==2 && encoreunnouveaulivre==true) {
+           std::cout << "\n************************************************************************************************** \n "
+                   "Pour ajouter un livre dans la blibliothèque !"
+                   "\n Merci de suivre exactement ces instructions ! \n ! Attention ! \n De plus : Remplacer les espaces entre les mots par (_) (ex :Joseph-Jacobs) \n "
+                   "\n 1 : L'identité numérique du livre (ex : n-xxxxxx )\n"
+                   "\n 2: Le prénom de l'auteur \n"
+                   "\n 3: Le nom de l'auteur \n "
+                   "\n 4: La date de naissance de l'auteur (ex : xxxx/xx/xx) année/mois/jour \n"
+                   "\n 5: Le titre \n "
+                   "\n 6: Genre (ex : Conte, Action, Policier ect..)\n"
+                   "\n 7: Langue ( ex : Français, Anglais, Espagnol, Allemand "
+                   "ect..)\n"
+                   "\n 8: ISBN (ex: xxx-x-xxxx-xxxx-x)\n"
+                   "\n 9: Date de publication (ex: xxxx/xx/xx) année/mois/jour \n"
+                   "\n Merci de votre comprhésion ! \n"
+                << "\n*****************************************************************************************************"
+                << std::endl;
+      std::cout << "\n Start \n";
+/*****************************************************************************************************************************
+                                                      VARIABLE 
+**********************************************************************************************************************************/
+      std::string IDnume;
+      std::string firstname;
+      std::string lastname;
+      std::string born;
+      std::string titre;
+      std::string newbookgenre;
+      std::string newbooklangue;
+      std::string ISBN;
+      std::string datePublicationne;
+     
+/*****************************************************************************************************************************
+                            Affectation des varibles grâces aux données, taper sur le clavier
+**********************************************************************************************************************************/
+      std::cout << "1) ", std::cin >> IDnume;
+      std::cout << "2) ", std::cin >> firstname;
+      std::cout << "3) ", std::cin >> lastname;
+      std::cout << "4) ", std::cin >> born;
+      std::cout << "5) ", std::cin >> titre;
+      std::cout << "6) ", std::cin >> newbookgenre;
+      std::cout << "7) ", std::cin >> newbooklangue;
+      std::cout << "8) ", std::cin >> ISBN;
+      std::cout << "9) ", std::cin >> datePublicationne;
+     /*****************************************************************************************************************************
+                           Définition des constructeurs pour affecter ces variables dans ceci
+**********************************************************************************************************************************/
+      Auteur A7(IDnume, firstname, lastname, born);
+      Livre ajoutelivre(A7, titre, newbookgenre, newbooklangue, ISBN,
+                        datePublication);
+     
+/*****************************************************************************************************************************
+                                        Vérification si le livre a bien été crée
+**********************************************************************************************************************************/
+      std::cout << "\n";
+      std::cout << "Création de du livre avec succes ! \n"
+                << A7.getFullNameAuteur() << ajoutelivre.getTitre()
+                << "\n Genre : " << ajoutelivre.getNewBookGenre()
+                << "\n Langue : "
+                << ajoutelivre.getNewBookLangue() + "\n ISBN : "
+                << ajoutelivre.getISBN() << "\n Date de publication : "
+                << toString(ajoutelivre.getDatePublication()) << std::endl;
+/*****************************************************************************************************************************
+            Commande pour pousser toutes les informations du nouveau livre dans <le vecteur Ajoutbook> ligne #104
+**********************************************************************************************************************************/
+      AjoutBook.push_back(
+         "\n Livre numéro 7 :"  + A7.getFullNameAuteur() +
+          "\n Titre : " + ajoutelivre.getTitre() +
+          "\n Genre : " + ajoutelivre.getNewBookGenre() +
+          "\n Langue : " + ajoutelivre.getNewBookLangue() +
+          "\n ISBN : " + ajoutelivre.getISBN() + "\n Date de publication : " +toString(ajoutelivre.getDatePublication())+
+        "\n********************************************************************************************\n");
+
+     
+/*****************************************************************************************************************************
+Commande pour inseré <le vecteur AjoutBook> dans <Le vecteur Bliblio> pour visualiser les données d'un livre ajouter dans le vecteur <Bliblio>
+**********************************************************************************************************************************/
+      Bliblio.insert(Bliblio.end(), AjoutBook.begin(), AjoutBook.end());
+     
+/*****************************************************************************************************************************
+Commande .clear permet d'nitialiser le vecteur <AjoutBook> et de sauvegarder les données du AjoutBook dans le vecteur <Bliblio>
+**********************************************************************************************************************************/     
+      AjoutBook.clear();
+      newbook=true;
+     encoreunnouveaulivre=true;
+/*****************************************************************************************************************************
+                                   Commande pour afficher le nouveau vecteur <Bliblio>
+**********************************************************************************************************************************/
+      std::cout << "\n********************************************************************************************"<< Bliblio;
+      std::cout << "\n********************************************************************************************\n";
+     
     }
     }
   

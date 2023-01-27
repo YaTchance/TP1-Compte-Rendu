@@ -295,7 +295,7 @@ int main(int argc, char const *argv[]) {
     }
   
  /*****************************************************************************************************************
-                                  Choix 2 : Pour ajouter un livre dans la blibliothèque
+                                  Choix 2 : Pour ajouter un premier livre dans la blibliothèque
 ****************************************************************************************************************/
 
   
@@ -389,7 +389,11 @@ Commande .clear permet d'nitialiser le vecteur <AjoutBook> et de sauvegarder les
       std::cout << "\n********************************************************************************************"<< Bliblio;
       std::cout << "\n********************************************************************************************\n";
      
-    } else if (Choix==2 && encoreunnouveaulivre==true) {
+    } 
+    /*****************************************************************************************************************
+                                  Choix 2 : Pour ajouter un deuxième livre dans la blibliothèque
+****************************************************************************************************************/
+   else if (Choix==2 && encoreunnouveaulivre==true) {
            std::cout << "\n************************************************************************************************** \n "
                    "Pour ajouter un livre dans la blibliothèque !"
                    "\n Merci de suivre exactement ces instructions ! \n ! Attention ! \n De plus : Remplacer les espaces entre les mots par (_) (ex :Joseph-Jacobs) \n "

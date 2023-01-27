@@ -1,0 +1,41 @@
+1	Répartition du travail :
+
+Nous avons choisi le TP1 car ses un niveau débutant et cela nous convient, mais il n’y avait pas que ceci. 
+Il avait le thème « Bibliothèque » dont cela nous à pousser en savoir un peu plus sur le fonctionnement numérique d’un logiciel d’une bibliothèque, 
+auquel fonctionne pour tous les bibliothèques du monde.
+Nous avons répartie le travail de manière équitable, 
+c’est-à-dire que chacun d’entre nous avons répartie les classes permettant d’optimiser le temps et quand on a terminé une classe on fessait une réunion 
+pour savoir comment l’intégrer et comment l’utiliser de manière optimal. Cela permettait de voir la construction du code petit à petit en fessant un « Commit et push » 
+sur le GitHub que nous avons créé. Pour savoir où on en est et l’avancement de la programmation de ce TP1. 
+
+
+2	Problème rencontré :
+
+Lors de notre première séance de TP C++, 
+nous avons eu un souci pour nous (le TP2 Robotique) pour se connecter avec notre compte linux dans la salle GS24 dont on n’a perdu 1 séance de TP,
+pour trouver un compilateur C++ sur internet et on a trouvé « Replit.it » grâce aux aides données par Mr Tel Steven.
+Ensuite, le plus compliqué à faire c’était l’établissement entre le constructeur « livre » et « auteur » ou 
+l’établissement entre « l’ajout du livre » dans la bibliothèque. 
+C’est-à-dire, on a recherché sur internet pour savoir comment mettre les données de l’auteur dans le constructeur « livre » ou un autre exemple, 
+les données du livre dans la bibliothèque. Mais, on a réussi tant de bien que de mal ! Grâce aux recherches sur internet.
+
+
+3	Conclusion générale :
+
+Ce TP nous a permis de mettre en évidence la structuration d’un programme, de créer et d’ajouter une ou plusieurs classes permettant de les introduire dans le « main »
+ou la classe qui aurait besoin des fonctionnalisées d’une classe en particulier. 
+Tout ceci nous ramènes a créé les constructeurs et les getters des classes et de comprendre le fonctionnement des fichiers .h et .cpp. 
+Le TP nous a apporté de nouvelles connaissances sur la programmation orienté objet. Par exemple l’utilisation des vecteurs, des constructeurs, des variables 
+(en insérant les informations d’un vecteur ou d’une opération), des getters. 
+Aussi, différencier ce qu’il a dans les fichiers .h et .cpp et de les crées de manière optimal pour avoir une meilleure compréhension du code 
+dans le fichier « main.cpp ».
+Ce TP1 est malheureusement pas le plus optimal car on n’a pas pris plus de temps à l’étudier correctement et 
+on ne s’intéresser pas forcément qu’à la programmation C++. Cependant, Au fur à mesure de l’avancement du code et au bon fonctionnement du programme.
+Cela nous donnez un sentiment de satisfaction pour avoir fait fonctionné les étapes de ce programme du TP1. 
+On regrette maintenant, de ne pas avoir pris plus de temps pour le C++ et de ne pas pouvoir optimiser ce programme, qu’on doit vous rendre le 27 janvier 2023.
+Ainsi, ce qui nous manque à acquérir pour notre future métier d’ingénieur :
+C’est de prendre le temps d’apprendre, de comprendre le plus possible et de s’exercer pour surpasser, anticiper ces obstacles,
+qui viendront en amont dont « être un ingénieur ». 
+
+Merci à vous,
+Cordialement Ya Tchance et David Flavien.
